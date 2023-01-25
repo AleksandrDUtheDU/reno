@@ -1,7 +1,10 @@
+
+
+
 function Services() {
     return (
         <h2>
-            Услуги
+            НАШИ УСЛУГИ
         </h2>
     );
 }

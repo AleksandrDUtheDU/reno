@@ -7,12 +7,11 @@ const CustomMenuItem = styled(MenuItem)`
     font-size: 14px;
 `
 
-const Privider = styled.div`
-    margin: 0 auto;
-    background: white;
-    height: 1.5px;
-    width: 21px;
-`
+// const CustomMenuItem = styled(MenuItem)(({ theme, match }) => `
+//     background: ${match && theme.palette.primary.main};
+//     font-size: 14px;
+// `
+// )
 
 const HeaderMenuLink = styled(Link)(
     ({ color }) =>
@@ -20,9 +19,9 @@ const HeaderMenuLink = styled(Link)(
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
-    color: ${color || 'white'};
+    color: ${color};
 `,
 )
 
@@ -35,39 +34,36 @@ const SideMenuLink = styled(Link)`
     color: black;
 `
 
-export const HeaderMenuCustomLink = ({ color, children, id, to, ...props }) => {
+export const HeaderMenuCustomLink = ({ children, id, to, ...props }) => {
 
     const match = useMatch(to)
-
     return (
         <CustomMenuItem key={id}>
             <HeaderMenuLink
-                color={color && match ? color : 'white'}
+                color={match ? 'black' : 'white'}
                 to={to}
                 {...props}
             >
                 {children}
             </HeaderMenuLink>
-            {/* {match ? <Privider /> : ''} */}
         </CustomMenuItem>
     )
 }
 
-export const SideMenuCustomLink = ({ color, children, id, to, ...props }) => {
+export const SideMenuCustomLink = ({ children, id, to, ...props }) => {
 
-    const match = useMatch(to)
-
+    // const match = useMatch(to)
     return (
-        <MenuItem key={id}>
+        <CustomMenuItem
+            // match={match} 
+            key={id}
+        >
             <SideMenuLink
-                color={color && match ? color : 'white'}
-
                 to={to}
                 {...props}
             >
                 {children}
             </SideMenuLink>
-            {/* {match ? <Privider /> : ''} */}
-        </MenuItem>
+        </CustomMenuItem>
     )
 }

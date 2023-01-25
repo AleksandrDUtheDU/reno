@@ -4,37 +4,37 @@ import Layout from '../widgets/Layout';
 import Main from '../pages/MainPage';
 import SpecialOffers from '../pages/SpecialOffers';
 import Services from '../pages/Services'
+import ServicesOnePage from '../pages/ServicesOnePage';
 import Registration from '../pages/Registration'
 import Photogallery from '../pages/Photogallery'
 import Contacts from '../pages/Contacts'
-// import ServicesTabs from '../pages/servicesPage/servicesTabs';
-// import ServicesTabsPage from '../pages/servicesPage/servicesTabsPage';
-// import ServicesTabsPageDescr from '../pages/servicesPage/servicesTabsPageDescr';
-// import CaseCarouselPage from '../pages/caseСarouselPage';
-// import TitleWrapp from '../widgets/calc/TitleWrapp';
-// import Step1 from '../widgets/calc/Step1'
-// import Contact from '../pages/contactFormPage'
-// import Politics from '../pages/politicsPage'
-// import ServicesLayout from '../pages/servicesPage/servicesLoyout';
-// import Step2 from '../widgets/calc/Step2';
-// import Step3 from '../widgets/calc/Step3';
+import CalcServices from '../pages/CalcServices';
+import ListModel from '../pages/ListModel';
+import RepairParts from '../pages/RepairParts';
+import Warranty from '../pages/Warranty';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
-        <Route path="special_offers" element={<SpecialOffers />} />
-        <Route path="services" element={<Services />} />
-        <Route path="registration" element={<Registration />} />
-        <Route path="photogallery" element={<Photogallery />} />
-        <Route path="contacts" element={<Contacts />} />
+        <Route path="akcii" element={<SpecialOffers />} />
+        <Route path="uslugi" element={<Services />} >
+          <Route path=":list" element={<ServicesOnePage />} />
+        </Route>
+        <Route path="zapis_na_servis" element={<Registration />} />
+        <Route path="fotogalereya" element={<Photogallery />} />
+        <Route path="kontakty" element={<Contacts />} />
+        <Route path="calc_services" element={<CalcServices />} />
+        <Route path="list-model" element={<ListModel />} />
+        <Route path="repair-parts" element={<RepairParts />} />
+        <Route path="warranty" element={<Warranty />} />
         {/* <Route path="services" element={<ServicesLayout />}>
           <Route index element={<ServicesTabs />} />
           <Route path=":list" element={<ServicesTabsPage />} />
           <Route path=":list/:link" element={<ServicesTabsPageDescr />} />
-        </Route>
-        <Route path="case" element={<CaseCarouselPage />} />
+        </Route> */}
+        {/* <Route path="case" element={<CaseCarouselPage />} />
         <Route path="calc" element={<TitleWrapp />}>
           <Route index element={<Step1 />} />
           <Route path="step1" element={<Step1 />} />
@@ -45,7 +45,7 @@ function App() {
         <Route path="contacts" element={<Contact />} />
         <Route path="privacy" element={<Politics />} /> */}
       </Route>
-    </Routes>
+    </Routes >
   );
 }
 
