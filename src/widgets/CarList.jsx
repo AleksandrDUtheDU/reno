@@ -1,33 +1,25 @@
-import styled from "@emotion/styled";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Container } from "@mui/system";
-import { Grid } from "@mui/material";
-import { specialOffers } from '../dataBase/dataBase'
+import { Container, Typography, Card, CardMedia, CardContent, Grid } from "@mui/material";
+import { modelRange } from "../dataBase/dataBase";
 
-
-const items = specialOffers.map(item => {
-    const { id, img, name, descr } = item;
+const items = modelRange.map(item => {
+    const { id, img, name } = item;
 
     return (
         <Grid
             item
-            xs={4}
+            xs={2}
             sm={3}
-            md={4}
+            md={2}
             key={id}
         >
-            <Card
-                sx={{ maxWidth: 345 }}
+
+            <Card key={id}
+                sx={{ maxWidth: 190 }}
             >
                 <CardMedia
-                    sx={{ height: 240 }}
+                    sx={{ height: 92 }}
                     image={img}
-                    title="green iguana"
+                    title={name}
                 />
                 <CardContent>
                     <Typography
@@ -38,9 +30,6 @@ const items = specialOffers.map(item => {
                     >
                         {name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {descr}
-                    </Typography>
                 </CardContent>
             </Card>
         </Grid>
@@ -48,9 +37,10 @@ const items = specialOffers.map(item => {
 });
 
 
-function SpecialOffers() {
+function CarList() {
+
     return (
-        <Container maxWidth="lg">
+        <Container sx={{ mt: 5 }} maxWidth="lg">
             <Typography
                 gutterBottom
                 spacing={2}
@@ -59,24 +49,23 @@ function SpecialOffers() {
                 align="center"
                 sx={{ textTransform: 'uppercase', padding: '30px' }}
             >
-                Спецпредложения
+                СЕРВИС И РЕМОНТ МОДЕЛЕЙ RENAULT
             </Typography>
             <Grid
                 container
                 direction="row"
                 justifyContent="space-between"
                 alignItems="start"
-                columns={{ xs: 4, sm: 6, md: 12 }}
+                columns={{ xs: 4, sm: 9, md: 10 }}
                 spacing={2}
             >
                 {items}
             </Grid>
+
+
+
         </Container>
-    );
+    )
 }
 
-export default SpecialOffers;
-
-
-
-
+export default CarList;

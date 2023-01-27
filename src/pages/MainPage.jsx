@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
-import { Typography, Container } from "@mui/material";
-
+import { Typography, Container, Button } from "@mui/material";
+import About from "../widgets/About";
+import CarouselMUI from "../widgets/CarouselMUI";
+import CarList from "../widgets/CarList";
 import bgPhoto from "../resources/renault-bg2.jpg"
 
 const BgMain = styled.div(
@@ -11,7 +13,6 @@ const BgMain = styled.div(
     background: url(${bgPhoto}) no-repeat 50%/cover;
 `,
 )
-
 
 
 function Main() {
@@ -27,8 +28,15 @@ function Main() {
                     >
                         СПЕЦИАЛИЗИРОВАННЫЙ АВТОСЕРВИС RENO РЕМОНТ МАРКИ РЕНО
                     </Typography>
+                    <Button variant="contained"  >
+                        Рассчет
+                    </Button>
+
                 </Container>
             </BgMain>
+            <About />
+            <CarouselMUI />
+            <CarList />
             {/* <div>КАРУСЕЛЬ</div>
             <div>СЕРВИС И РЕМОНТ МОДЕЛЕЙ RENAULT В РЕНОМАКС</div>
             <div>НАШИ ПРЕИМУЩЕСТВА</div>

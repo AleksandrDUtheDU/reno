@@ -1,6 +1,6 @@
 import GlobalStyles from "@mui/material/GlobalStyles";
 
-export default function GlobalStylesApp() {
+export function GlobalStylesApp() {
   return (
     <GlobalStyles
       styles={

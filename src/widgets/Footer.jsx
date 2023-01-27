@@ -1,121 +1,149 @@
-import styled from "@emotion/styled";
-// import { Link } from "react-router-dom";
-// import { Section } from "../theme/Container";
 import {
     Grid,
     Container,
-    Typography
+    Typography,
+    Box,
+    Link
 } from "@mui/material";
-
-
-
-const BgFooter = styled.footer(({ theme }) => `
-    background: ${theme.palette.primary.main};
-`
-)
-
-const FooterWrapp = styled.div`
-    padding: 20px 50px;
-    max-width: 1440px;
-    margin: 0 auto;
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-around;
-    gap: 50px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 14px;
-    color: white;
-    @media ${props => props.theme.media.bigTablet} {
-    grid-template-rows: repeat(2, 1fr);    
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    font-size: 16px;
-    padding: 20px;
-    }
-    @media ${props => props.theme.media.phone} {
-    grid-template-rows: repeat(4, 1fr);    
-    grid-template-columns: repeat(1, 1fr);
-    }
-    gap: 10px;
-`
-
-const FooterItemTitle = styled.p`
-    font-weight: 700;
-
-`
-
-const FooterItemWrapp = styled.div`
-
-
-
-`
-
-const SocialLink = styled.a`
-    margin-top: 10px;
-    margin-left: 15px;
-    color: white;
-    text-decoration: none;
-    &:hover {
-        color: #214E41;
-    }
-`;
-
-
+import { WrappColor } from "../shared/ui/WrappColor";
+import Logo from "../shared/ui/Logo";
 
 function Footer() {
 
     return (
-        <BgFooter>
+        <WrappColor as="footer">
             <Container maxWidth="xl">
-                <Typography
-                    variant="h4"
-                    component="h1"
-
+                <Grid
+                    container
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="start"
+                    columns={{ xs: 4, sm: 6, md: 12 }}
+                    spacing={2}
                 >
-                    ЗАЛУПА
-                </Typography>
-                {/* <FooterWrapp >
-                    <FooterItemWrapp>
-                        <FooterItemTitle>ООО "ФК "БУХЭКСПЕРТ"</FooterItemTitle>
+                    <Grid
+                        item
+                        xs={4}
+                        sm={3}
+                        md={3}
+                    >
+                        <Box justifyContent="center" sx={{ display: 'flex' }}>
+                            <Logo />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                    lineHeight: '60px'
+                                }}
+                            >
+                                RENO-GO
+                            </Typography>
+                        </Box>
+                        <Box align="center"
+                        >
+                            <Link
+                                sx={{ color: 'black' }}
+                                variant="subtitle1"
+                                component="a"
+                                align="center"
+                                href="https://reno-go.ru/"
+                            >
+                                reno-go.ru
+                            </Link>
+                        </Box>
 
-                        ИНН: 2901311566
-                        <br />
-                        ОГРН: 1222900005899
-                        <br />
-                    </FooterItemWrapp>
-                    <FooterItemWrapp>
-                        <FooterItemTitle>КОНТАКТЫ:</FooterItemTitle>
-                        <Phone width="18" height="18"> 89116725855</Phone>
-                        <SocialLink href="tel:+79116725855" target="blank">
-                            +7 911 672 58 55
-                        </SocialLink>
-                        <br />
-                        <Mail width="21" height="21"> buh.expert29@mail.ru </Mail>
-                        <SocialLink href="mailto:buh.expert29@mail.ru" target="blank">
-                            buh.expert29@mail.ru
-                        </SocialLink>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={4}
+                        sm={3}
+                        md={3}
+                    >
+                        <Typography
+                            variant="h6"
+                            align="center"
+                        >
+                            МЕНЮ
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={4}
+                        sm={3}
+                        md={3}
+                    >
+                        <Typography
+                            variant="h6"
+                            align="center"
 
-                    </FooterItemWrapp>
-                    <FooterItemWrapp>
-                        <FooterItemTitle>Юридический адрес:</FooterItemTitle>
-
-                        г. Архангельск, пр. Московский, д.25, оф.21
-                        <br />
-
-                    </FooterItemWrapp>
-                    <FooterItemWrapp>
-                        <FooterItemTitle>Почтовый адрес:</FooterItemTitle>
-
-                        г. Архангельск, пр. Московский, д.25, оф.21
-                        <br />
-
-                    </FooterItemWrapp>
-                </FooterWrapp> */}
-
+                        >
+                            УСЛУГИ
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={4}
+                        sm={3}
+                        md={3}
+                    >
+                        <Typography
+                            variant="h6"
+                            align="center"
+                        >
+                            КОНТАКТЫ
+                        </Typography>
+                        <Typography
+                            variant="subtitle1"
+                        >
+                            Часы работы с 10.00  до 21.00 без перерыва и выходных
+                        </Typography>
+                        <Typography
+                            variant="subtitle1"
+                        >
+                            г. Санкт-Петербург ул. Передовиков 8а
+                        </Typography>
+                        <Box>
+                            <Link
+                                sx={{ color: 'black' }}
+                                variant="subtitle1"
+                                component="a"
+                                href="tel:+79291772270"
+                            >
+                                телефон: +7-929-177-22-70
+                            </Link>
+                        </Box>
+                        <Box>
+                            <Link
+                                sx={{ color: 'black' }}
+                                variant="subtitle1"
+                                component="a"
+                                href="tel:+79291772280"
+                            >
+                                телефон: +7-929-177-22-80
+                            </Link>
+                        </Box>
+                        <Box>
+                            <Link
+                                sx={{ color: 'black' }}
+                                variant="subtitle1"
+                                component="a"
+                                href="mailto:Reno-go1772270@yandex.ru"
+                            >
+                                почта: Reno-go1772270@yandex.ru
+                            </Link>
+                        </Box>
+                    </Grid>
+                </Grid>
             </Container>
-        </BgFooter>
+        </WrappColor>
     );
 }
 

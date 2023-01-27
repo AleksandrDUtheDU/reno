@@ -1,16 +1,10 @@
 import { Outlet } from 'react-router-dom';
 
-import Footer from './Footer'
-import ResponsiveAppBar from './ResponsiveAppBar'
-
-import styled from "@emotion/styled";
-
-const Wrapp = styled.div`
-    margin-top: 60px;
-`
+import Footer from '../widgets/Footer'
+import ResponsiveAppBar from '../widgets/ResponsiveAppBar'
+import { Wrapp } from '../shared/ui/Wrapp';
 
 export function Layout() {
-
     return (
         <>
             <ResponsiveAppBar />

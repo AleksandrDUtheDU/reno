@@ -1,17 +1,9 @@
 import { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { AppBar, Box, IconButton, Typography, Menu, Container, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import { navigation } from '../dataBase/dataBase';
-import { HeaderMenuCustomLink, SideMenuCustomLink } from '../app/theme/NavItem';
-import { ReactComponent as Logo } from '../resources/logo/renault-logo1.svg';
-import { SvgIcon } from '@mui/material';
+import { HeaderMenuCustomLink, SideMenuCustomLink, ButtonLink } from '../shared/ui/CustomLinks';
+import Logo from '../shared/ui/Logo';
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -27,26 +19,26 @@ function ResponsiveAppBar() {
     const headerMenu = navigation.map(item => {
         const { id, name, link } = item;
         return (
-            <HeaderMenuCustomLink key={id} to={`${link}`}> {name} </HeaderMenuCustomLink>
+            <MenuItem sx={{ fontSize: '14px' }} key={id}>
+                <HeaderMenuCustomLink to={`${link}`}> {name} </HeaderMenuCustomLink>
+            </MenuItem>
         )
     })
 
     const sideMenu = navigation.map(item => {
         const { id, name, link } = item;
         return (
-            <SideMenuCustomLink key={id} to={`${link}`}> {name} </SideMenuCustomLink>
+            <MenuItem sx={{ fontSize: '14px', borderBottom: 'solid #00000026' }} key={id}>
+                <SideMenuCustomLink to={`${link}`}> {name} </SideMenuCustomLink>
+            </MenuItem>
         )
     });
 
-
     return (
         <AppBar position="fixed">
-            <Container maxWidth="xl" sx={{ height: 60, display: 'flex' }}>
-                {/* <Toolbar sx={{ padding: 0 }} > */}
+            <Container maxWidth="xl" sx={{ height: 60, display: 'flex', justifyContent: 'space-between' }}>
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                    <SvgIcon sx={{ mr: 1, fontSize: 60 }}>
-                        <Logo />
-                    </SvgIcon>
+                    <Logo />
                     <Typography
                         variant="h6"
                         noWrap
@@ -66,9 +58,7 @@ function ResponsiveAppBar() {
                     </Typography>
                 </Box>
                 <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                    <SvgIcon sx={{ mr: 1, fontSize: 60 }}>
-                        <Logo />
-                    </SvgIcon>
+                    <Logo />
                     <Typography
                         variant="h5"
                         noWrap
@@ -76,7 +66,6 @@ function ResponsiveAppBar() {
                         href="/"
                         sx={{
                             mr: 2,
-                            flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -92,7 +81,19 @@ function ResponsiveAppBar() {
 
                     {headerMenu}
                 </Box>
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'end' }}>
+                <Box>
+                    <MenuItem>
+                        <ButtonLink
+                            color={'secondary'}
+                            variant="contained"
+                            sx={{ height: 40, fontSize: 16, marginTop: '4px' }}
+                            to="calc_services"
+                        >
+                            Рассчет
+                        </ButtonLink>
+                    </MenuItem>
+                </Box>
+                <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'end' }}>
                     <Menu
                         id="menu-appbar"
                         anchorEl={anchorElNav}
@@ -125,9 +126,9 @@ function ResponsiveAppBar() {
                         />
                     </IconButton>
                 </Box>
-                {/* </Toolbar> */}
             </Container>
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;
